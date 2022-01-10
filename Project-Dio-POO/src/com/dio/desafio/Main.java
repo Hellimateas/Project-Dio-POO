@@ -1,7 +1,9 @@
 package com.dio.desafio;
 
+import com.dio.desafio.dominio.BootCamp;
 import com.dio.desafio.dominio.Conteudo;
 import com.dio.desafio.dominio.Curso;
+import com.dio.desafio.dominio.Dev;
 import com.dio.desafio.dominio.Mentoria;
 
 public class Main {
@@ -11,13 +13,27 @@ public static void main(String[] args) {
 	matematica.setTitulo("Resolução de calculos");
 	matematica.setCargaHoraria(40);
 	matematica.setDescricao("Matematica");
-	System.out.println(matematica);
+
 	
 	Conteudo dio = new Mentoria();
 	dio.setDescricao("Melhor bootcamp");
 	dio.setTitulo("Inter");
 	
-	System.out.println(dio.toString());
 	
+	BootCamp bootcamp = new BootCamp();
+	bootcamp.setNome("Java Tech Developer");
+	bootcamp.setDescricao("vem ser Tech");
+	bootcamp.getConteudos().add(matematica);
+	bootcamp.getConteudos().add(dio);
+	
+	Dev hellimateas = new Dev();
+	hellimateas.setNome("Hellimateas");
+	hellimateas.inscreverBootcamp(bootcamp);
+	System.out.println("Conteudos inscritos" + hellimateas.getConteudosInscritos());
+	System.out.println("Conteudos concluidos" + hellimateas.getConteudosConcluidos());
+	
+	Dev felipe = new Dev();
+	felipe.setNome("Felipe Barros");
+	System.out.println("Conteudos Inscritos" + felipe.getConteudosInscritos());
 }
 }
